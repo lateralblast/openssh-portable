@@ -536,10 +536,17 @@ privsep_preauth(struct ssh *ssh)
 		/* Arrange for logging to be sent to the monitor */
 		set_log_handler(mm_log_handler, pmonitor);
 
-		privsep_preauth_child();
-		setproctitle("%s", "[net]");
+#ifdef __APPLE_SANDBOX_NAMED_EXTERNAL__
+		/* We need to do this before we chroot() so we can read sshd.sb */
 		if (box != NULL)
 			ssh_sandbox_child(box);
+#endif
+		privsep_preauth_child();
+		setproctitle("%s", "[net]");
+#ifndef __APPLE_SANDBOX_NAMED_EXTERNAL__
+		if (box != NULL)
+			ssh_sandbox_child(box);
+#endif
 
 		return 0;
 	}
