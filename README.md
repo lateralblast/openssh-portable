@@ -17,6 +17,7 @@ brew install automake
 grew install libedits
 grew install ldns
 autoreconf
+./configure --prefix=#{prefix} --sysconfdir=#{etc}/ssh --with-ldns --with-libedit --with-kerberos5 --with-pam
 ```
 
 ## Documentation
