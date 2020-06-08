@@ -14,8 +14,9 @@ This fork includes two Mac OS X patches:
 ```
 brew install autoconf
 brew install automake
-grew install libedits
-grew install ldns
+brew install libedits
+brew install ldns
+brew install openssl
 autoreconf
 ./configure --prefix=#{prefix} --sysconfdir=#{etc}/ssh --with-ldns --with-libedit --with-kerberos5 --with-pam
 ```
