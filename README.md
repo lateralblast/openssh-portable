@@ -9,7 +9,9 @@ This fork includes the HPN-SSH patches and two Mac OS X patches:
 - patch-sandbox-darwin.c-apple-sandbox-named-external
 - patch-sshd.c-apple-sandbox-named-external
 
-## Compilation on Mac OS X
+## Compilation and installation on Mac OS X
+
+Example compilation on Mac OS X:
 
 ```
 brew install autoconf
@@ -18,7 +20,14 @@ brew install libedits
 brew install ldns
 brew install openssl
 autoreconf
-./configure --prefix=#{prefix} --sysconfdir=#{etc}/ssh --with-ldns --with-libedit --with-kerberos5 --with-pam
+./configure --prefix=/usr/local/hpnssh --sysconfdir=/usr/local/hpnssh/etc//ssh --with-ldns --with-libedit --with-kerberos5 --with-pam
+```
+
+Example installation on Mac OS X:
+
+```
+make all
+make install
 ```
 
 Example version output:
