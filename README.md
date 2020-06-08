@@ -25,7 +25,7 @@ Example version output:
 
 ```
 OpenSSH_8.1p1-hpn14v20, OpenSSL 1.1.1g  21 Apr 2020
-``
+```
 
 ## Documentation
 
